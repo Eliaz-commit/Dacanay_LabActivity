@@ -4,7 +4,7 @@ A small, responsive notes interface for the lab activity. It demonstrates API-ba
 
 ## Run it
 
-Open `index.html` in a modern browser with an internet connection. The page loads records from JSONPlaceholder at `https://jsonplaceholder.typicode.com/posts`.
+Open `index.html` in a modern browser with an internet connection. The page sends a GET request to JSONPlaceholder at `https://jsonplaceholder.typicode.com/posts` and uses the returned record IDs with short, local English and Filipino sample notes.
 
 ## CRUD mapping
 
@@ -15,7 +15,7 @@ Open `index.html` in a modern browser with an internet connection. The page load
 | Update note | `PUT` | `/posts/{id}` |
 | Delete note | `DELETE` | `/posts/{id}` |
 
-JSONPlaceholder is a demonstration API: it accepts write requests and returns sample responses, but it does not persist created, updated, or deleted records on its server. This app updates its on-screen collection after a successful response; a page refresh reloads the server's sample records.
+JSONPlaceholder is a demonstration API: it accepts write requests and returns sample responses, but it does not persist created, updated, or deleted records on its server. The app updates its on-screen collection after a successful response; a page refresh loads the same nine sample notes again.
 
 ## Files
 

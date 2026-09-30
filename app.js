@@ -1,6 +1,17 @@
 "use strict";
 
 const API_URL = "https://jsonplaceholder.typicode.com/posts";
+const SAMPLE_NOTES = [
+  { title: "Daily Plan", body: "Choose three important tasks to finish today." },
+  { title: "Grocery List", body: "Buy rice, eggs, milk, and vegetables." },
+  { title: "Class Notes", body: "Review the lesson and write down the key points." },
+  { title: "Mga Gawain", body: "Tapusin ang activity bago magpahinga." },
+  { title: "Paalala", body: "Dalhin ang notebook bukas." },
+  { title: "Study Time", body: "Mag-aral nang 30 minuto pagkatapos kumain." },
+  { title: "Bills to Pay", body: "Bayaran ang kuryente bago ang due date." },
+  { title: "Clean Desk", body: "Ayusin ang mga papel at punasan ang mesa." },
+  { title: "Water Plants", body: "Diligan ang mga halaman mamayang hapon." },
+];
 
 const notesGrid = document.querySelector("#notes-grid");
 const notePreview = document.querySelector("#note-preview");
@@ -143,10 +154,9 @@ async function loadNotes() {
   totalLabel.textContent = "Loading…";
   try {
     const data = await request("?_limit=9");
-    notes = data.map((record) => ({
+    notes = data.map((record, index) => ({
       id: record.id,
-      title: record.title,
-      body: record.body,
+      ...SAMPLE_NOTES[index % SAMPLE_NOTES.length],
     }));
     selectedNoteId = notes[0]?.id ?? null;
     renderNotes();
